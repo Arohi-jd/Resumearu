@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { portfolioData } from '../data/portfolioData'
-import { Badge } from '../components/Badge'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,9 +33,9 @@ export const About = () => {
             y: 0,
             rotateX: 0,
             duration: 0.8,
-            ease: 'power3.out'
-          }),
-          delay: index * 0.05
+            ease: 'power3.out',
+            delay: index * 0.05
+          })
         })
       })
 
