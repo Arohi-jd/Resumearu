@@ -36,6 +36,54 @@ export const portfolioData: PortfolioData = {
       tech: ["Vue.js", "Quasar", "Supabase", "PostgreSQL", "Google Maps API", "Chart.js", "AI/ML"],
       url: "https://nav-smart-projects.vercel.app/"
     },
+
+    {
+  id: "url-tracker",
+  title: "URL Tracker",
+  category: "Full-Stack",
+  imageUrl: "/images/projects/url-tracker.jpg",
+  headline: "Real-time URL uptime monitoring with alerts & analytics.",
+  role: "Full-Stack Developer",
+  problem: "Businesses needed a reliable way to monitor website uptime, response times, and get instant alerts during downtime.",
+  solution: "Built a full-stack monitoring system with automated health checks running at configurable intervals (1–60 mins). Implemented real-time charts for performance tracking and alerting mechanisms.",
+  outcome: "Enabled proactive monitoring with historical insights, reducing downtime impact through real-time alerts.",
+  tech: [
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Express",
+    "Supabase",
+    "Node-Cron",
+    "Recharts"
+  ],
+  url: "https://url-tracker-jet.vercel.app/"
+},
+{
+  id: "mindnest",
+  title: "MindNest",
+  category: "Full-Stack",
+  imageUrl: "/images/projects/mindnest.jpg",
+  headline: "Collaborative platform for student teams and mentor interactions.",
+  role: "Full-Stack Developer",
+  problem: "Students lacked a unified platform for team formation, idea submissions, and structured mentor communication.",
+  solution: "Developed backend-driven collaboration modules with secure OAuth login, JWT authentication, and real-time chat using WebSockets. Designed scalable data models with Prisma and MySQL.",
+  outcome: "Improved collaboration flow between students and mentors with real-time communication and structured idea management.",
+  tech: [
+    "Node.js",
+    "Express",
+    "Prisma",
+    "MySQL",
+    "OAuth",
+    "JWT",
+    "Socket.IO",
+    "React",
+    "Vite",
+    "MUI",
+    "Radix UI",
+    "Tailwind CSS"
+  ],
+  url: "https://mind-nest-team-async.vercel.app/"
+},
     
     {
       id: "teefusion",
@@ -92,9 +140,9 @@ export const portfolioData: PortfolioData = {
       ],
       tech: ["Figma", "UI/UX Design", "Prototyping", "Component Library"],
       links: [
-        { label: "Certificate", url: "#" },
-        { label: "Work Link 1", url: "#" },
-        { label: "Work Link 2", url: "#" }
+        { label: "Certificate", url: "https://drive.google.com/file/d/1Za_ITt80vXCT0bzGSy3ECjlXZateRWvk/view?usp=sharing" },
+        { label: "Work Link 1", url: "https://www.figma.com/design/j9KdPu2P2VpqQLrlqLUlDF/TGGT-Designs?node-id=770-150&p=f&t=96e0GK6sjqmjQc9B-0" },
+        { label: "Work Link 2", url: "https://www.figma.com/design/j9KdPu2P2VpqQLrlqLUlDF/TGGT-Designs?node-id=1-9&p=f&t=96e0GK6sjqmjQc9B-0" }
       ]
     },
     {
@@ -117,7 +165,7 @@ export const portfolioData: PortfolioData = {
       ],
       tech: ["React", "Node.js", "MongoDB", "Express.js", "MERN"],
       links: [
-        { label: "Research Paper", url: "#" }
+        { label: "Research Paper", url: "https://docs.google.com/document/d/1GZ-5oY6pOixxNrYNA58WbZbCPg9EC2imW8G9-N6ZLdE/edit?tab=t.0" }
       ]
     },
     {
@@ -135,10 +183,7 @@ export const portfolioData: PortfolioData = {
         
       ],
       tech: ["Community Management", "Event Organization", "Leadership", "Open Source"],
-      links: [
-        { label: "NST-SDC Repos", url: "#" },
-        { label: "Student Developer Club", url: "#" }
-      ]
+      
     },
     {
       role: "Entrepreneur",
@@ -147,7 +192,15 @@ export const portfolioData: PortfolioData = {
       location: "Pune",
       type: "Entrepreneur",
       description: "Launched and scaled a custom apparel brand from zero to 70+ orders in 2 months, achieving a 40% profit margin through strategic sourcing and social media marketing.",
-      imageUrl: "/images/experience/deare.jpg",
+     imageUrls: [
+        "public/images/experience/WhatsApp Image 2026-02-06 at 14.10.09.jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 14.10.11.jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 14.10.10 (2).jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 14.10.10 (1).jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 14.10.10.jpeg",
+       
+        
+      ],
       tech: ["E-commerce", "Marketing", "Business Strategy", "Social Media"]
     },
     {
@@ -157,7 +210,11 @@ export const portfolioData: PortfolioData = {
       location: "Pune",
       type: "Competition",
       description: "Finalist & Runner-Up entry for Smart India Hackathon 2024, a nationwide coding competition. Engineered an AI-driven fleet management system to optimize bus routes for Delhi Transport Corp, projected to reduce fuel costs by 15% and improve on-time performance.",
-      imageUrl: "/images/experience/navsmart-sih.jpg",
+      imageUrls:[ "public/images/experience/WhatsApp Image 2026-02-06 at 15.50.58.jpeg",
+        "public/images/experience/WhatsApp Image 2026--06 at 15.50.58.jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 15.50.58 (1).jpeg",
+        "public/images/experience/WhatsApp Image 2026-02-06 at 15.50.59.jpeg"
+      ],
       tech: ["Vue.js", "Quasar", "Supabase", "AI/ML", "Team Leadership", "Google Maps API"]
     }
   ],
