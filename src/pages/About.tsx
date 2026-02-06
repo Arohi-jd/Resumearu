@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { portfolioData } from '../data/portfolioData'
@@ -13,6 +13,11 @@ const stats = [
 
 export const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
+  const professionalPhotos =
+    portfolioData.personal.professionalPhotoUrls && portfolioData.personal.professionalPhotoUrls.length > 0
+      ? portfolioData.personal.professionalPhotoUrls
+      : [portfolioData.personal.professionalPhotoUrl]
+  const [activePhoto, setActivePhoto] = useState(professionalPhotos[0])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -95,24 +100,52 @@ export const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           {/* Hero media + bio */}
           <div className="lg:col-span-3 about-card">
-            <div className="relative overflow-hidden rounded-[32px] border border-zinc-800/70 bg-gradient-to-br from-zinc-950/90 via-zinc-900/80 to-zinc-900/50 p-6 md:p-10 about-hero-media">
+            <div className="relative overflow-visible rounded-[32px] border border-zinc-800/70 bg-gradient-to-br from-zinc-950/90 via-zinc-900/80 to-zinc-900/50 p-6 md:p-10 about-hero-media">
               <div className="absolute inset-0 opacity-30">
                 <div className="w-full h-full bg-[radial-gradient(circle_at_top,_rgba(236,72,153,0.25),transparent_55%)]"></div>
               </div>
-              <div className="relative grid md:grid-cols-2 gap-8 items-center">
-                <div className="relative">
-                  <div className="absolute -inset-2 bg-gradient-to-br from-pink-500 via-fuchsia-500 to-pink-400 opacity-70 blur-2xl"></div>
-                  <div className="relative rounded-[28px] overflow-hidden border border-white/10 shadow-2xl">
-                    <img
-                      src={portfolioData.personal.professionalPhotoUrl}
-                      alt={portfolioData.personal.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <div className="relative flex flex-col gap-10 items-start">
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute -inset-6 bg-gradient-to-br from-pink-500 via-fuchsia-500 to-pink-400 opacity-50 blur-3xl"></div>
+                  <div className="relative w-full max-w-4xl rounded-[36px] p-4">
+                    {professionalPhotos.length > 0 && (
+                      <div className="relative h-[32rem] sm:h-[40rem] w-full">
+                        {professionalPhotos.slice(0, 3).map((photo, index) => {
+                          const isActive = activePhoto === photo
+                          const baseTransforms = [
+                            'translate-x-0 rotate-[-6deg]',
+                            'translate-x-6 rotate-[0deg]',
+                            'translate-x-12 rotate-[6deg]'
+                          ]
+                          return (
+                            <button
+                              key={photo}
+                              type="button"
+                              onMouseEnter={() => setActivePhoto(photo)}
+                              onFocus={() => setActivePhoto(photo)}
+                              className={`group absolute left-0 top-1/2 -translate-y-1/2 h-[30rem] w-[22rem] sm:h-[36rem] sm:w-[26rem] rounded-[28px] overflow-hidden border transition-all duration-300 shadow-xl ${
+                                isActive
+                                  ? 'border-pink-500/60 shadow-pink-500/40 z-20 -translate-y-[60%]'
+                                  : 'border-white/10 hover:border-pink-500/40 z-10'
+                              } ${baseTransforms[index] ?? ''}`}
+                              style={{ zIndex: isActive ? 30 : 10 + index }}
+                              aria-label={`Preview photo ${index + 1}`}
+                            >
+                              <img
+                                src={photo}
+                                alt={`${portfolioData.personal.name} preview ${index + 1}`}
+                                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                            </button>
+                          )
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-6 w-full">
                   <div>
                     <p className="text-sm uppercase tracking-[0.3em] text-pink-400">Bio</p>
                     <h3 className="text-3xl font-heading font-semibold text-white mt-2">{portfolioData.personal.name}</h3>

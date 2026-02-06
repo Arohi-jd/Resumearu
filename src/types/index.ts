@@ -11,6 +11,7 @@ export interface PersonalInfo {
     linkedin: string
   }
   professionalPhotoUrl: string
+  professionalPhotoUrls?: string[]
   candidPhotoUrl: string
 }
 

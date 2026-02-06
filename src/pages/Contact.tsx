@@ -4,6 +4,7 @@ import { Button } from '../components/Button'
 import { Input } from '../components/Input'
 import { Textarea } from '../components/Textarea'
 import { portfolioData } from '../data/portfolioData'
+import { supabase } from '../lib/supabaseClient'
 
 export const Contact = () => {
   const contactRef = useRef<HTMLDivElement>(null)
@@ -14,6 +15,10 @@ export const Contact = () => {
     email: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<
+    { type: 'success' | 'error'; message: string } | null
+  >(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -36,8 +41,10 @@ export const Contact = () => {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setSubmitStatus(null)
+    setIsSubmitting(true)
     
     // Button micro-interaction: Pop animation
     if (sendButtonRef.current) {
@@ -48,12 +55,35 @@ export const Contact = () => {
         repeat: 1,
         ease: "power2.inOut",
         onComplete: () => {
-          // Reset form after animation
-          setFormData({ name: '', email: '', message: '' })
-          // You can add form submission logic here
+          // Form submission logic (Supabase)
         }
       })
     }
+
+    const { error } = await supabase
+      .from('contact_messages')
+      .insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        }
+      ])
+
+    if (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again.'
+      })
+    } else {
+      setSubmitStatus({
+        type: 'success',
+        message: 'Message sent successfully!'
+      })
+      setFormData({ name: '', email: '', message: '' })
+    }
+
+    setIsSubmitting(false)
   }
 
   return (
@@ -151,9 +181,20 @@ export const Contact = () => {
             ref={sendButtonRef}
             type="submit"
             className="w-full"
+            disabled={isSubmitting}
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
+
+          {submitStatus && (
+            <p
+              className={`text-sm font-body ${
+                submitStatus.type === 'success' ? 'text-green-400' : 'text-red-400'
+              }`}
+            >
+              {submitStatus.message}
+            </p>
+          )}
         </form>
       </div>
     </div>
