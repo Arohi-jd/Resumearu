@@ -20,11 +20,10 @@ export const portfolioData: PortfolioData = {
       linkedin: "https://linkedin.com/[YourUsername]",
     },
     professionalPhotoUrl: "/images/experience/IMG_20241227_225932 (1).jpg",
-    professionalPhotoUrls: ["public/images/personal/WhatsApp Image 2026-02-06 at 17.13.42.jpeg",
-      
-      "public/images/personal/WhatsApp Image 2026-02-06 at 17.13.41.jpeg",
-      "public/images/personal/WhatsApp Image 2026-02-06 at 17.13.41 (1).jpeg",
-      "/images/experience/IMG_20241227_225932 (1).jpg"
+    professionalPhotoUrls: [
+      "/images/personal/WhatsApp Image 2026-02-06 at 17.13.42.jpeg",
+      "/images/personal/WhatsApp Image 2026-02-06 at 17.13.41.jpeg",
+      "/images/personal/WhatsApp Image 2026-02-06 at 17.13.41 (1).jpeg"
     ],
     candidPhotoUrl: "https://placehold.co/600x400/18181b/fuchsia?text=Hackathon+Team"
   },
