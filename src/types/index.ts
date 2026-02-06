@@ -51,6 +51,7 @@ export interface Skills {
   databases: string[]
   tools: string[]
   languages: string[]
+  softSkills?: string[]
 }
 
 export interface ExtraCurricular {

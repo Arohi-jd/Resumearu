@@ -224,11 +224,19 @@ export const portfolioData: PortfolioData = {
     }
   ],
   skills: {
-    frontend: ["React", "Vue.js", "Quasar", "Material-UI", "Framer Motion", "Vite"],
-    backend: ["Node.js", "Express.js"],
-    databases: ["MySQL", "Supabase", "Firebase", "Prisma"],
-    tools: ["Git", "GitHub", "Figma", "Chart.js"],
-    languages: ["JavaScript", "CSS", "HTML", "Python"]
+    frontend: ["React", "Vue.js", "Next JS", "Tailwind CSS", "Bootstrap", "Material-UI", "Framer Motion", "Vite"],
+    backend: ["Node.js", "Express JS", "Prisma ORM"],
+    databases: ["MySQL", "MongoDB", "SQL", "Supabase", "Firebase"],
+    tools: ["Git and Github", "Figma", "Microsoft Office", "Spreadsheet", "Social Media", "Chart.js"],
+    languages: ["JavaScript", "TypeScript", "HTML", "CSS", "Python", "C"],
+    softSkills: [
+      "Communication Skills",
+      "Presentation Skills",
+      "Public speaking",
+      "Team Building",
+      "Teamwork",
+      "Responsibility"
+    ]
   },
   extraCurriculars: [
     { title: "Founder, KASS Beauty", description: "Launched a D2C beauty brand, handling branding, marketing, and operations."},
